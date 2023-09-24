@@ -1,7 +1,4 @@
 #!/usr/bin/env bash
 
-docker build \
-	--build-arg PASS_FILE=$PASS_FILE \
-	--no-cache -t mine . && \
-	docker run -it mine
+docker build --no-cache -t mine . && docker run -it mine
 
