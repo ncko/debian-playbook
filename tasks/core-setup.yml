@@ -2,11 +2,18 @@
   become: true
   apt:
     name: [ "python3", "python3-pip", "xorg", "xinit", "i3", "man-db", "git", "zsh", "zplug" ]
-  tags: test
+  tags: core
+- name: Basic utilities
+  become: true
+  apt:
+    name: [ "curl", "sed", "gawk", "stow" ]
+  tags: core
 - name: Productivity tools
   become: true
   apt:
     name: [ "tmux", "fzf", "neovim" ]
+  tags: core
 - name: Change to zsh
   become: true
   shell: chsh -s $(which zsh)
+  tags: core
