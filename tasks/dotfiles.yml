@@ -1,0 +1,6 @@
+- name: clone dotfiles
+  ansible.builtin.git:
+    repo: https://github.com/ncko/debian-dotfiles
+    dest: ~/.dotfiles
+- name: install dotfiles
+  shell: ~/.dotfiles/station install
