@@ -4,3 +4,5 @@
     dest: ~/.dotfiles
 - name: install dotfiles
   shell: ~/.dotfiles/station install
+- name: reset dotfiles repo origin url
+  shell: cd ~/.dotfiles && git remote set-url origin git@github.com:ncko/debian-dotfiles

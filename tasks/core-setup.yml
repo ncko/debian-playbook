@@ -17,3 +17,5 @@
   become: true
   shell: chsh -s $(which zsh)
   tags: core
+- name: Reset playbook url
+  shell: cd ~/projects/ncko/debian-playbook && git remote set-url origin git@github.com:ncko/debian-playbook
