@@ -1,0 +1,11 @@
+- name: Install obsidian prereqs
+  become: true
+  apt:
+    name: [ "libsecret-1-0" ]
+  tags: obsidian
+- name: Download latest obsidian
+  shell: cd ~/Downloads && wget -O obsidian.deb $(curl -L api.github.com/repos/obsidianmd/obsidian-releases/releases/latest | jq ".assets[] | .browser_download_url" | tr -d '"' | grep deb$)
+  tags: obsidian
+- name: Install obsidian
+  shell: cd ~/Downloads && sudo dpkg -i obsidian.deb
+  tags: obsidian

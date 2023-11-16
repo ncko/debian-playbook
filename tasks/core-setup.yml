@@ -11,8 +11,10 @@
 - name: Productivity tools
   become: true
   apt:
-    name: [ "tmux", "fzf" ]
-  tags: core
+    name: [ "tmux", "fzf", "jq" ]
+  tags:
+    - core
+    - productivity
 - name: Change to zsh
   become: true
   shell: chsh -s $(which zsh)
