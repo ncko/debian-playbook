@@ -17,3 +17,15 @@ cd build && cpack -G DEB && sudo dpkg -i nvim-linux64.deb
 Or just purge everything and start over.
 
 https://github.com/neovim/neovim/wiki/Building-Neovim for more info
+
+## dpkg
+
+```bash
+# install
+dpkg -i something.deb
+
+# remove
+dpkg -P something
+```
+
+
