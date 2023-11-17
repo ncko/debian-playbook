@@ -8,3 +8,8 @@
     name: user.name
     scope: global
     value: "ncko"
+- name: Git default editor
+  git_config:
+    name: core.editor
+    scope: global
+    value: "nvim"
