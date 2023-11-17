@@ -21,3 +21,6 @@
   tags: core
 - name: Reset playbook url
   shell: cd ~/projects/ncko/debian-playbook && git remote set-url origin git@github.com:ncko/debian-playbook
+- name: Create deck directory
+  shell: mkdir ~/deck
+  tags: deck
