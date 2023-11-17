@@ -18,4 +18,5 @@
     - include: tasks/dotfiles.yml
     - include: tasks/brave.yml
     - include: tasks/obsidian.yml
+    - include: tasks/1password.yml
     - include: tasks/neovim.yml
