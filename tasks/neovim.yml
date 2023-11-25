@@ -15,3 +15,8 @@
 - name: Install neovim
   shell: cd ~/projects/neovim/neovim/build && cpack -G DEB && sudo dpkg -i nvim-linux64.deb
   tags: neovim
+- name: Clone kickstart
+  ansible.builtin.git:
+    repo: https://github.com/ncko/kickstart.nvim
+    dest: ~/.config/nvim
+  tags: neovim

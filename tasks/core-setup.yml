@@ -11,7 +11,7 @@
 - name: Productivity tools
   become: true
   apt:
-    name: [ "tmux", "fzf", "jq" ]
+    name: [ "tmux", "fzf", "jq", "ripgrep" ]
   tags:
     - core
     - productivity
