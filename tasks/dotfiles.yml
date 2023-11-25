@@ -2,7 +2,17 @@
   ansible.builtin.git:
     repo: https://github.com/ncko/debian-dotfiles
     dest: ~/.dotfiles
-- name: install dotfiles
+  tags: 
+    - server
+    - station
+- name: install station dotfiles
   shell: ~/.dotfiles/station install
+  tags: station
+- name: install server dotfiles
+  shell: ~/.dotfiles/server install
+  tags: server
 - name: reset dotfiles repo origin url
   shell: cd ~/.dotfiles && git remote set-url origin git@github.com:ncko/debian-dotfiles
+  tags: 
+    - ssh
+    - station

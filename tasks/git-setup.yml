@@ -3,13 +3,22 @@
     name: user.email
     scope: global
     value: "hello@ncko.me"
+  tags: 
+    - server
+    - station
 - name: Git personal setup name
   git_config:
     name: user.name
     scope: global
     value: "ncko"
+  tags: 
+    - server
+    - station
 - name: Git default editor
   git_config:
     name: core.editor
     scope: global
     value: "nvim"
+  tags: 
+    - server
+    - station

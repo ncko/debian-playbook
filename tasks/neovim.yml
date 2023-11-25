@@ -2,21 +2,36 @@
   become: true
   apt:
     name: [ "ninja-build", "gettext", "cmake", "unzip", "curl" ]
-  tags: neovim
+  tags: 
+    - neovim
+    - server
+    - station
 - name: Clone neovim
   ansible.builtin.git:
     repo: https://github.com/neovim/neovim
     dest: ~/projects/neovim/neovim
     version: stable
-  tags: neovim
+  tags: 
+    - neovim
+    - server
+    - station
 - name: Build neovim
   shell: cd ~/projects/neovim/neovim && make CMAKE_BUILD_TYPE=RelWithDebInfo
-  tags: neovim
+  tags: 
+    - neovim
+    - server
+    - station
 - name: Install neovim
   shell: cd ~/projects/neovim/neovim/build && cpack -G DEB && sudo dpkg -i nvim-linux64.deb
-  tags: neovim
+  tags: 
+    - neovim
+    - server
+    - station
 - name: Clone kickstart
   ansible.builtin.git:
     repo: https://github.com/ncko/kickstart.nvim
     dest: ~/.config/nvim
-  tags: neovim
+  tags: 
+    - neovim
+    - server
+    - station

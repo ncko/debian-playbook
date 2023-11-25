@@ -1,13 +1,26 @@
 - name: System packages
   become: true
   apt:
-    name: [ "python3", "python3-pip", "xorg", "xinit", "i3", "man-db", "git", "zsh", "zplug" ]
-  tags: core
+    name: [ "python3", "python3-pip", "man-db", "git", "zsh", "zplug" ]
+  tags:
+    - core
+    - server
+    - station
+- name: Workstation system packages
+  become: true
+  apt:
+    name: [ "xorg", "xinit", "i3" ]
+  tags: 
+    - core
+    - station
 - name: Basic utilities
   become: true
   apt:
     name: [ "curl", "sed", "gawk", "stow" ]
-  tags: core
+  tags: 
+    - core
+    - server
+    - station
 - name: Productivity tools
   become: true
   apt:
@@ -15,12 +28,25 @@
   tags:
     - core
     - productivity
+    - server
+    - station
 - name: Change to zsh
   become: true
   shell: chsh -s $(which zsh)
-  tags: core
+  tags: 
+    - core
+    - station
 - name: Reset playbook url
   shell: cd ~/projects/ncko/debian-playbook && git remote set-url origin git@github.com:ncko/debian-playbook
-- name: Create necessary directories
+  tags: 
+    - ssh
+    - station
+- name: Create deck direction
+  shell: mkdir -p ~/deck
+  tags: 
+    - station
+    - server
+- name: Create Downloads directory
   shell: mkdir -p ~/deck ~/Downloads
-  tags: deck
+  tags: 
+    - station
