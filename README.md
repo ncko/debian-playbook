@@ -43,3 +43,17 @@ dpkg -P something
 ```
 
 
+
+## cron
+`-l` or `--limit` will limit the hosts to the ones you specify.
+
+```shell
+ansible-playbook playbook.yml --tags "cron" -i hosts.yml -l "cron" --ask-become-pass
+```
+
+
+## proxmox vms dotfiles
+
+```shell
+ansible-playbook playbook.yml --tags "update-dotfiles" -i hosts.yml -l "proxmoxvms"
+```
