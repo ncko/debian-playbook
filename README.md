@@ -6,13 +6,13 @@ ansible-playbook playbook.yml --tags "station" --ask-become-pass --ask-vault-pas
 
 For server
 ```bash
-ansible-playbook playbook.yml --tags "server" --ask-become-pass
+ansible-playbook playbook.yml --tags "server" -i hosts.yml --ask-become-pass
 ```
 
 The server does not automatically install ssh. If you want it, you'll need to include the `ssh` tag with `--ask-vault-pass`.
 
 ```bash
-ansible-playbook playbook.yml --tags "server,ssh" --ask-become-pass --ask-vault-pass
+ansible-playbook playbook.yml --tags "server,ssh" -i hosts.yml --ask-become-pass --ask-vault-pass
 ```
 
 
