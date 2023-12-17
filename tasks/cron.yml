@@ -1,0 +1,30 @@
+- name: Install dependencies
+  become: true
+  apt:
+    name: [ "nodejs" ]
+  tags:
+    - cron
+- name: Clone greensquares
+  ansible.builtin.git:
+    repo: git@github.com:ncko/greensquares
+    dest: /home/ncko/projects/ncko/greensquares
+  tags:
+    - cron
+- name: Install yarn
+  become: true
+  shell: npm install -g yarn
+  tags:
+    - cron
+- name: Install greensquares packages
+  shell: cd /home/ncko/projects/ncko/greensquares && yarn
+  tags:
+    - cron
+- name: Setup crontab for greensquares
+  ansible.builtin.cron:
+    name: "greensquares"
+    minute: "0"
+    hour: "5"
+    weekday: "1,2,3,4,5"
+    job: "cd /home/ncko/projects/ncko/greensquares/index.js && node index.js"
+  tags:
+    - cron
