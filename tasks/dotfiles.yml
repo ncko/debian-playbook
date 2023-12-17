@@ -5,14 +5,22 @@
   tags: 
     - server
     - station
+    - update-dotfiles
 - name: install station dotfiles
   shell: ~/.dotfiles/station install
   tags: station
+- name: clean server dotfiles
+  shell: ~/.dotfiles/server clean
+  tags:
+    - update-dotfiles
 - name: install server dotfiles
   shell: ~/.dotfiles/server install
-  tags: server
+  tags:
+    - server
+    - update-dotfiles
 - name: reset dotfiles repo origin url
   shell: cd ~/.dotfiles && git remote set-url origin git@github.com:ncko/debian-dotfiles
   tags: 
     - ssh
     - station
+
