@@ -39,7 +39,6 @@
 - name: Reset playbook url
   shell: cd ~/projects/ncko/debian-playbook && git remote set-url origin git@github.com:ncko/debian-playbook
   tags: 
-    - ssh
     - station
 - name: Create deck direction
   shell: mkdir -p ~/deck

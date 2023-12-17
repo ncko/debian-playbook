@@ -1,4 +1,4 @@
-- hosts: localhost
+- hosts: proxmoxvms
   vars:
     source_key: "./ssh/id_rsa"
     dest_key: "{{ lookup('env', 'HOME') }}/.ssh/id_rsa"
@@ -20,3 +20,4 @@
     - include: tasks/obsidian.yml
     - include: tasks/1password.yml
     - include: tasks/neovim.yml
+    - include: tasks/node.yml
